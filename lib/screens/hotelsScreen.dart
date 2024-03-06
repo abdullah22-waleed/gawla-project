@@ -132,18 +132,16 @@ class _HotelsScreenState extends State<HotelsScreen> {
                                           ],
                                         ),
                                         const SizedBox(height: 8),
-                                        Rate(),
-                                        Row(
+                                        const Rate(),
+                                        const Row(
                                           children: [
-                                            Container(
-                                              child: const Text(
-                                                'very good. 1500 reviews',
-                                                style: TextStyle(
-                                                    color: Colors.black),
-                                              ),
+                                            Text(
+                                              'very good. 1500 reviews',
+                                              style: TextStyle(
+                                                  color: Colors.black),
                                             ),
-                                            const SizedBox(width: 6),
-                                            const Icon(Icons
+                                            SizedBox(width: 6),
+                                            Icon(Icons
                                                 .accessible_forward_rounded),
                                           ],
                                         ),
@@ -231,7 +229,7 @@ class _HotelsScreenState extends State<HotelsScreen> {
         Text(
           text,
           style: const TextStyle(
-            color: const Color(0xFFFFCA28), // Set the text color
+            color: Color(0xFFFFCA28), // Set the text color
           ),
         ),
       ],

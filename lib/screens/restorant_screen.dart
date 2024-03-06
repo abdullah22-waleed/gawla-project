@@ -1,40 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:gawla/screens/NearPlaces.dart';
-import 'package:gawla/screens/hotelsReservation.dart';
 import 'package:gawla/utils/colors.dart';
 import 'package:gawla/utils/rate.dart';
+import 'package:slide_rating_dialog/slide_rating_dialog.dart';
 
 final List<String> _imagePaths = [
-  'assets/images/hotels1.jpg',
-  'assets/images/hotels2.jpg',
-  'assets/images/hotels3.jpg',
-  'assets/images/hotels4.jpg',
+  'assets/images/bahiya.jpg',
+  'assets/images/bahiya2.jpg',
+  'assets/images/bahiya3.jpg',
 ];
 
-final List<Map<String, IconData>> mapList = [
-  {'Smoke Free': Icons.smoke_free},
-  {'Family rooms': Icons.family_restroom},
-  {'Wifi': Icons.wifi},
-  {'Private Bath': Icons.bathtub_rounded},
-  {'Air conditioner': Icons.air},
-  {'Restaurants': Icons.fastfood},
-  {'Pools': Icons.pool},
-  {'Free trips': Icons.train_sharp},
-  {'Child care': Icons.child_care},
-];
-
-class HotelsDetails extends StatefulWidget {
-  const HotelsDetails({
+class Bahiya_restorant extends StatefulWidget {
+  const Bahiya_restorant({
     Key? key,
   }) : super(key: key);
 
   @override
-  _HotelsDetailsState createState() => _HotelsDetailsState();
+  _Bahiya_restorantState createState() => _Bahiya_restorantState();
 }
 
-class _HotelsDetailsState extends State<HotelsDetails> {
+class _Bahiya_restorantState extends State<Bahiya_restorant> {
   bool isFavorite = false;
+  double borderRadius = 50.0;
 
   @override
   Widget build(BuildContext context) {
@@ -45,15 +32,6 @@ class _HotelsDetailsState extends State<HotelsDetails> {
           style: TextStyle(color: Colors.white),
         ),
         backgroundColor: const Color(0xFFFFCA28),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.arrow_forward_rounded, color: Colors.white),
-            onPressed: () {
-              // Add your back button logic here
-              Navigator.pop(context);
-            },
-          ),
-        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -104,7 +82,7 @@ class _HotelsDetailsState extends State<HotelsDetails> {
                   // Left side text
                   Expanded(
                     child: Text(
-                      'Helen Hotels\nObarge Fayoum',
+                      'Bahia Grill Restaurant',
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -168,44 +146,62 @@ class _HotelsDetailsState extends State<HotelsDetails> {
                   ),
                   SizedBox(height: 8),
                   Text(
-                    ' '
-                    'It is the luxury hotel that has been the official host of celebrities and prominent figures over the years. It was founded in 1937. '
-                    'Extending on the shores of the wonderful Lake Qarun, it was formerly a hunting lodge for King Farouk.'
-                    'It provides you with an elegant atmosphere and a wide range of activities.Enjoy the pristine countryside and stroll along the golden sandy beach. Fish, windsurf or windsurf. Take a short excursion to visit the seven famous waterwheels or explore the unique rock formations in Wadi El Hitan. Whatever you choose to do, the Auberge is the perfect place that also offers you luxurious, tastefully furnished rooms. Relax in the peaceful atmosphere of your room and enjoy the stunning scenery. This is a true oasis and an ideal place for you to unwind.',
+                    'Bahia Restaurant...original Egyptian food, grilled birds,'
+                    ' casseroles, restaurants specializing in serving oriental'
+                    ' dishes between Egyptian and Arabic. We prepare it with perfection'
+                    ' and precision to give you the authentic taste and provide you with '
+                    'high-level service in all our branches. Egyptian food, Bahia Hadayek Al-Ahram,'
+                    ' Bahia Al Mohandiseen, Bahia October, Al Hosary ',
                     style: TextStyle(
                       fontSize: 18,
                       color: App_color.text_color,
                     ),
+                    maxLines: 8,
                   ),
                 ],
               ),
             ),
             const SizedBox(height: 20),
-            // Horizontally scrollable map list with icons and names
-            SizedBox(
-              height: 100,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                physics: const BouncingScrollPhysics(),
-                itemCount: mapList.length,
-                itemBuilder: (context, index) {
-                  final iconName = mapList[index].keys.first;
-                  final iconData = mapList[index].values.first;
-
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      children: [
-                        Icon(iconData, color: App_color.application_color),
-                        const SizedBox(height: 4),
-                        Text(iconName, style: const TextStyle(fontSize: 12)),
-                      ],
+            ElevatedButton(
+              onPressed: () {
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: (context) => const (),
+                //   ),
+                // );
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xff00000059),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
+              ),
+              child: Container(
+                width: MediaQuery.sizeOf(context).width,
+                padding: const EdgeInsets.all(10),
+                child: const Row(
+                  children: [
+                    CircleAvatar(
+                      radius: 15,
+                      child: Icon(Icons.accessible_forward),
                     ),
-                  );
-                },
+                    SizedBox(
+                      width: 4,
+                    ),
+                    // Wrap the Row with Expanded to prevent overflow
+                    Expanded(
+                      child: Text(
+                        'There are places equipped for people with mobility disabilities',
+                        style: TextStyle(
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-            // Row with two text buttons
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
               child: Row(
@@ -213,12 +209,17 @@ class _HotelsDetailsState extends State<HotelsDetails> {
                 children: [
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const HotelsReservationscreen(),
-                        ),
-                      );
+                      showDialog(
+                          context: context,
+                          barrierDismissible: true,
+                          builder: (BuildContext cont) => SlideRatingDialog(
+                                onRatingChanged: (rating) {
+                                  print(rating.toString());
+                                },
+                                buttonOnTap: () {
+                                  // Do your Business Logic here;
+                                },
+                              ));
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: App_color.application_color,
@@ -230,7 +231,7 @@ class _HotelsDetailsState extends State<HotelsDetails> {
                       padding: const EdgeInsets.symmetric(
                           vertical: 15, horizontal: 20),
                       child: const Text(
-                        'Book now',
+                        'rate the place',
                         style: TextStyle(
                           color: Colors.white,
                         ),
@@ -238,14 +239,7 @@ class _HotelsDetailsState extends State<HotelsDetails> {
                     ),
                   ),
                   ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const NearPlaces(),
-                        ),
-                      );
-                    },
+                    onPressed: () {},
                     style: ElevatedButton.styleFrom(
                       backgroundColor: App_color.application_color,
                       shape: RoundedRectangleBorder(
@@ -256,7 +250,7 @@ class _HotelsDetailsState extends State<HotelsDetails> {
                       padding: const EdgeInsets.symmetric(
                           vertical: 15, horizontal: 20),
                       child: const Text(
-                        'Near tourist places',
+                        'food menu',
                         style: TextStyle(
                           color: Colors.white,
                         ),
@@ -264,6 +258,25 @@ class _HotelsDetailsState extends State<HotelsDetails> {
                     ),
                   ),
                 ],
+              ),
+            ),
+            InkWell(
+              onTap: () {},
+              child: GestureDetector(
+                child: Container(
+                  width: MediaQuery.sizeOf(context).width,
+                  padding: const EdgeInsets.all(16.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(borderRadius),
+                    color: const Color(0xffFFCA28),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      'Go to him',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
               ),
             ),
           ],

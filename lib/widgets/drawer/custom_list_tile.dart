@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gawla/screens/companiesScreen.dart';
 import 'package:gawla/screens/hotelsScreen.dart';
+import 'package:gawla/screens/restorant_screen.dart';
+import 'package:gawla/screens/shoping_screen.dart';
 
 class CustomListTile extends StatelessWidget {
   final bool isCollapsed;
@@ -33,6 +35,18 @@ class CustomListTile extends StatelessWidget {
           // Navigate to HotelScreen when "Hotels" tile is tapped
           Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => const CompaniesScreen(),
+          ));
+        }
+        if (title == 'What to eat') {
+          // Navigate to HotelScreen when "Hotels" tile is tapped
+          Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => const Bahiya_restorant(),
+          ));
+        }
+        if (title == 'Shopping') {
+          // Navigate to HotelScreen when "Hotels" tile is tapped
+          Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => const Shoping(),
           ));
         }
       },

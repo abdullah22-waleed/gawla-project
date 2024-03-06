@@ -19,11 +19,11 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     // Import your screens here
     const HomeScreen(),
     searchscreen(),
-    Mapscreen(),
-    Profile_screen(),
-    HotelsScreen(),
-    HotelsDetails(),
-    NearPlaces(),
+    const Mapscreen(),
+    const Profile_screen(),
+    const HotelsScreen(),
+    const HotelsDetails(),
+    const NearPlaces(),
   ];
 
   @override
@@ -71,21 +71,26 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
 }
 
 class Mapscreen extends StatelessWidget {
+  const Mapscreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Map Screen')),
-      body: Center(child: Text('Map Screen Content')),
+      appBar: AppBar(title: const Text('Map Screen')),
+      body: const Center(child: Text('Map Screen Content')),
     );
   }
 }
 
+// ignore: camel_case_types
 class Profile_screen extends StatelessWidget {
+  const Profile_screen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Profile Screen')),
-      body: Center(child: Text('Profile Screen Content')),
+      appBar: AppBar(title: const Text('Profile Screen')),
+      body: const Center(child: Text('Profile Screen Content')),
     );
   }
 }

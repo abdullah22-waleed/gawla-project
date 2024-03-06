@@ -21,7 +21,9 @@ final List<Map<String, String>> placesData = [
 ];
 
 class NearPlaces extends StatelessWidget {
-  const NearPlaces({Key? key});
+  const NearPlaces({
+    super.key,
+  });
 
   void navigateToPlaceDetails(BuildContext context, int index) {
     // Navigate to another screen with place details
@@ -37,7 +39,7 @@ class NearPlaces extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Nearby Places',
           style: TextStyle(
             fontWeight: FontWeight.bold,
@@ -47,7 +49,7 @@ class NearPlaces extends StatelessWidget {
         centerTitle: true,
         backgroundColor: const Color(0xFFFFCA28),
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.location_on,
             color: Colors.orange,
           ),
@@ -57,7 +59,7 @@ class NearPlaces extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.arrow_forward,
               color: Colors.black,
             ),
@@ -93,7 +95,7 @@ class NearPlaces extends StatelessWidget {
                           image: AssetImage(placesData[index]['imagePath']!),
                           fit: BoxFit.cover,
                         ),
-                        borderRadius: BorderRadius.vertical(
+                        borderRadius: const BorderRadius.vertical(
                           top: Radius.circular(10.0),
                         ),
                       ),
@@ -103,7 +105,7 @@ class NearPlaces extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       placesData[index]['title']!,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 18.0,
                         fontWeight: FontWeight.bold,
                       ),
@@ -129,7 +131,7 @@ class PlaceDetailsScreen extends StatelessWidget {
     // Implement the UI for place details based on the index
     return Scaffold(
       appBar: AppBar(
-        title: Text('Place Details'),
+        title: const Text('Place Details'),
       ),
       body: Center(
         child: Text('Details for Place $index'),

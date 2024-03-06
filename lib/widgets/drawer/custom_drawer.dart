@@ -66,7 +66,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
               CustomListTile(
                 isCollapsed: _isCollapsed,
                 icon: Icons.shopping_cart_outlined,
-                title: 'shopping',
+                title: 'Shopping',
                 infoCount: 0,
               ),
               CustomListTile(

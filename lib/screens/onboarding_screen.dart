@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gawla/screens/home_screen.dart';
+import 'package:gawla/screens/sign_in_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -46,7 +46,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         actions: [
           TextButton(
             onPressed: () {
-              // Add any logic for the "skip" button here
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (ctx) =>  const Sign_in_screen(),
+                ),
+              );
+
             },
             child: const Text(
               'Skip',
@@ -198,7 +203,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       onTap: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (ctx) => const HomeScreen(),
+                            builder: (ctx) =>  const Sign_in_screen(),
                           ),
                         );
                       },

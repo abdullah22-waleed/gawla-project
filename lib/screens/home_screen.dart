@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:gawla/screens/tourist_places.dart';
 
 import 'package:gawla/widgets/drawer/custom_drawer.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,10 +18,10 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
   final List<String> _buttonNames = [
-    'Explore',
-    'Hotels',
-    'Cuisine',
-    'Transportation',
+    'Nature',
+    'Sea',
+    'Museums',
+    'Pharos',
   ];
 
   final List<String> _imagePaths = [
@@ -110,7 +111,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           _selectedIndex = index;
                         });
                         // Add logic for button press
-                        print('Button $index pressed');
+                        if (_selectedIndex == 0) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const TouristPlaces(),
+                            ),
+                          );
+                        }
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,

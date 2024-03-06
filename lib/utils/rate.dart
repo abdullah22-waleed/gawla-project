@@ -1,8 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class Rate extends StatefulWidget {
+  const Rate({super.key});
+
   @override
   State<Rate> createState() => _RateState();
 }

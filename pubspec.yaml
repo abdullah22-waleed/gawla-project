@@ -40,6 +40,7 @@ dependencies:
   navigation_panel: ^1.0.1
   convex_bottom_bar: ^3.2.0
   flutter_rating_bar: ^4.0.1
+  slide_rating_dialog: ^1.0.4
 
 dev_dependencies:
   flutter_test:
@@ -84,6 +85,7 @@ flutter:
     - assets/images/near2.jpg
     - assets/images/near4.jpg
     - assets/images/travel.jpg
+    - assets/images/
 
 
 
